@@ -54,6 +54,11 @@ class DemoPembelianTest {
             System.out.println("---------");
         }
         System.out.println("============");
-        System.out.println("Total : Rp. " + formatter.format( pembelian1.total().setScale(0)));
+        System.out.println("Total : Rp. " + formatter.format( pembelian1.total()));
+
+        Diskon diskon = new DiskonTotal();
+        BigDecimal nilaiDiskon = diskon.hitung(pembelian1);
+        System.out.println("Nilai Diskon : "+ formatter.format(nilaiDiskon));
+
     }
 }
