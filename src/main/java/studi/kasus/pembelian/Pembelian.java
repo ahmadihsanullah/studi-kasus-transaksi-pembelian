@@ -1,11 +1,23 @@
 package studi.kasus.pembelian;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Pembelian {
+    public LocalDateTime getWaktuSekarang() {
+        return waktuSekarang;
+    }
+
+    public void setWaktuSekarang(LocalDateTime waktuSekarang) {
+        this.waktuSekarang = waktuSekarang;
+    }
+
     private LocalDateTime waktuSekarang = LocalDateTime.now();
     private Customer customer;
     private List<DetailPembelian> detailDaftarPembelian = new ArrayList<>();
@@ -53,5 +65,15 @@ public class Pembelian {
 
     public BigDecimal totalBayar(){
         return total().subtract(totalDiskon());
+    }
+
+    public void rincianDiskon() {
+        NumberFormat formatter = DecimalFormat.getCurrencyInstance(new Locale("in","id"));
+
+        for (Diskon d : daftarDiskon){
+            System.out.println(d.getClass().getSimpleName()
+                + " : "
+                    + formatter.format(d.hitung(this).setScale(0, RoundingMode.HALF_EVEN)));
+        }
     }
 }

@@ -27,8 +27,8 @@ class DemoPembelianTest {
         p3.setHarga(new BigDecimal(37_000_000));
 
         Customer c1 = new Customer();
-        c1.setNama("ahmad");
-        c1.setEmail("ahmad@gmail.com");
+        c1.setNama("agus");
+        c1.setEmail("agus@gmail.com");
 
         DetailPembelian dp1 = new DetailPembelian();
         dp1.setProduk(p1);
@@ -58,9 +58,14 @@ class DemoPembelianTest {
 
         //aplikasikan diskon ke pembelian
         pembelian1.getDaftarDiskon().add(new DiskonTotal()); //diskon total
-        System.out.println("Nilai Diskon pembelian : "+ formatter.format(pembelian1.totalDiskon()));
         pembelian1.getDaftarDiskon().add(new DiskonProduk()); //diskon produk
-        System.out.println("Total Diskon(pembelian + produk) : "+ formatter.format(pembelian1.totalDiskon()));
+        pembelian1.getDaftarDiskon().add(new DiskonCustomer()); //diskon customer
+        pembelian1.getDaftarDiskon().add(new DiskonAkhirBulan()); //diskon Akhir Bulan
+
+        //tampilkan rincian diskon
+        pembelian1.rincianDiskon();
+        System.out.println("================");
+        System.out.println("Total Diskon : "+ formatter.format(pembelian1.totalDiskon()));
         System.out.println("Total Bayar : "+ formatter.format(pembelian1.totalBayar()));
     }
 }
