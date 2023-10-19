@@ -1,0 +1,22 @@
+Pembelian oleh ahmad
+=====Rincian =====
+Produk : Macbook Air 2017
+Harga : Rp. 28.000.000
+Jumlah : 2
+Subtotal : Rp. 56.000.000
+---------
+Produk : Macbook Pro-M2 2020
+Harga : Rp. 37.000.000
+Jumlah : 1
+Subtotal : Rp. 37.000.000
+---------
+============
+Total : Rp. 93.000.000
+Nilai Diskon pembelian : 9.300.000
+Nilai Diskon pembelian + produk : 23.250.000
+
+56.000.000 * 15% = 8.400.000
+37.000.000 * 15% = 5.550.000
+diskon produk    = 13.950.000
+diskon pembelian = 9.300.000
+                 = 23.250.000

@@ -56,9 +56,11 @@ class DemoPembelianTest {
         System.out.println("============");
         System.out.println("Total : Rp. " + formatter.format( pembelian1.total()));
 
-        Diskon diskon = new DiskonTotal();
-        BigDecimal nilaiDiskon = diskon.hitung(pembelian1);
-        System.out.println("Nilai Diskon : "+ formatter.format(nilaiDiskon));
-
+        //aplikasikan diskon ke pembelian
+        pembelian1.getDaftarDiskon().add(new DiskonTotal()); //diskon total
+        System.out.println("Nilai Diskon pembelian : "+ formatter.format(pembelian1.totalDiskon()));
+        pembelian1.getDaftarDiskon().add(new DiskonProduk()); //diskon produk
+        System.out.println("Total Diskon(pembelian + produk) : "+ formatter.format(pembelian1.totalDiskon()));
+        System.out.println("Total Bayar : "+ formatter.format(pembelian1.totalBayar()));
     }
 }

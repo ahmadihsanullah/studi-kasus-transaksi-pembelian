@@ -1,12 +1,15 @@
 package studi.kasus.pembelian;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pembelian {
+    private LocalDateTime waktuSekarang = LocalDateTime.now();
     private Customer customer;
     private List<DetailPembelian> detailDaftarPembelian = new ArrayList<>();
+    private List<Diskon> daftarDiskon = new ArrayList<>();
 
     public Customer getCustomer() {
         return customer;
@@ -32,4 +35,23 @@ public class Pembelian {
         return hasil;
     }
 
+    public BigDecimal totalDiskon(){
+        BigDecimal hasil = BigDecimal.ZERO;
+        for(Diskon d : daftarDiskon){
+            hasil = hasil.add(d.hitung(this)); //dia akan menghitung diskon yang ada dilist
+        }
+        return hasil;
+    }
+
+    public List<Diskon> getDaftarDiskon() {
+        return daftarDiskon;
+    }
+
+    public void setDaftarDiskon(List<Diskon> daftarDiskon) {
+        this.daftarDiskon = daftarDiskon;
+    }
+
+    public BigDecimal totalBayar(){
+        return total().subtract(totalDiskon());
+    }
 }
