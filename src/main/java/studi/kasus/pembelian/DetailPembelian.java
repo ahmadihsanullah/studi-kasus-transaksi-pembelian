@@ -6,6 +6,12 @@ public class DetailPembelian {
     private Produk produk;
 
     private Integer jumlah;
+
+    public DetailPembelian(Produk produk, Integer jumlah) {
+        this.produk = produk;
+        this.jumlah = jumlah;
+    }
+
     public Produk getProduk() {
         return produk;
     }

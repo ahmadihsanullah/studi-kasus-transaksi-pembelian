@@ -30,13 +30,9 @@ class DemoPembelianTest {
         c1.setNama("agus");
         c1.setEmail("agus@gmail.com");
 
-        DetailPembelian dp1 = new DetailPembelian();
-        dp1.setProduk(p1);
-        dp1.setJumlah(2);
+        DetailPembelian dp1 = new DetailPembelian(p1, 2);
 
-        DetailPembelian dp2 = new DetailPembelian();
-        dp2.setProduk(p3);
-        dp2.setJumlah(1);
+        DetailPembelian dp2 = new DetailPembelian(p3,1);
 
         Pembelian pembelian1 = new Pembelian();
         pembelian1.setCustomer(c1);
