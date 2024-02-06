@@ -20,7 +20,7 @@ public class Pembelian {
 
     private LocalDateTime waktuSekarang = LocalDateTime.now();
     private Customer customer;
-    private List<DetailPembelian> detailDaftarPembelian = new ArrayList<>();
+    private List<PembelianDetail> detailDaftarPembelian = new ArrayList<>();
     private List<Diskon> daftarDiskon = new ArrayList<>();
 
     public Customer getCustomer() {
@@ -31,17 +31,17 @@ public class Pembelian {
         this.customer = customer;
     }
 
-    public List<DetailPembelian> getDetailDaftarPembelian() {
+    public List<PembelianDetail> getDetailDaftarPembelian() {
         return detailDaftarPembelian;
     }
 
-    public void setDetailDaftarPembelian(List<DetailPembelian> detailPembelian) {
+    public void setDetailDaftarPembelian(List<PembelianDetail> detailPembelian) {
         this.detailDaftarPembelian = detailPembelian;
     }
 
     public BigDecimal total(){
         BigDecimal hasil = BigDecimal.ZERO;
-        for(DetailPembelian detail : detailDaftarPembelian){
+        for(PembelianDetail detail : detailDaftarPembelian){
             hasil = hasil.add(detail.subTotal());
         }
         return hasil;

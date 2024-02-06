@@ -2,12 +2,12 @@ package studi.kasus.pembelian;
 
 import java.math.BigDecimal;
 
-public class DetailPembelian {
+public class PembelianDetail {
     private Produk produk;
 
     private Integer jumlah;
 
-    public DetailPembelian(Produk produk, Integer jumlah) {
+    public PembelianDetail(Produk produk, Integer jumlah) {
         this.produk = produk;
         this.jumlah = jumlah;
     }

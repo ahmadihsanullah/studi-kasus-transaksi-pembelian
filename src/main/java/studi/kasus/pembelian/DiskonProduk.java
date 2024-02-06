@@ -13,7 +13,7 @@ public class DiskonProduk implements Diskon{
     public BigDecimal hitung(Pembelian pembelian) {
         BigDecimal hasil = BigDecimal.ZERO;
 
-        for(DetailPembelian detailPembelian : pembelian.getDetailDaftarPembelian()){
+        for(PembelianDetail detailPembelian : pembelian.getDetailDaftarPembelian()){
             Produk p = detailPembelian.getProduk();
             if(DAFTAR_PRODUK_DISKON.contains(p.getKode())){
                 hasil = hasil.add(PERSENTASE_DISKON.multiply(detailPembelian.subTotal()));
